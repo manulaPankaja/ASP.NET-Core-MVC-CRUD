@@ -66,3 +66,4 @@ C:\Users\panka\Documents\.NET\ASPNETMVCCRUD\ASPNETMVCCRUD\bin\Debug\net6.0\runti
 C:\Users\panka\Documents\.NET\ASPNETMVCCRUD\ASPNETMVCCRUD\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\panka\Documents\.NET\ASPNETMVCCRUD\ASPNETMVCCRUD\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\panka\Documents\.NET\ASPNETMVCCRUD\ASPNETMVCCRUD\obj\Debug\net6.0\ASPNETMVCCRUD.csproj.CopyComplete
+C:\Users\panka\Documents\.NET\ASPNETMVCCRUD\ASPNETMVCCRUD\obj\Debug\net6.0\ASPNETMVCCRUD.sourcelink.json

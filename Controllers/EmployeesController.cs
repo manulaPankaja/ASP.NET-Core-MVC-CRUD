@@ -2,6 +2,7 @@
 using ASPNETMVCCRUD.Models;
 using ASPNETMVCCRUD.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASPNETMVCCRUD.Controllers
 {
@@ -13,6 +14,15 @@ namespace ASPNETMVCCRUD.Controllers
         {
             this.mvcDemoDbContext = mvcDemoDbContext;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var employees = await mvcDemoDbContext.Employees.ToListAsync();
+            return View(employees);
+        }
+
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -35,7 +45,7 @@ namespace ASPNETMVCCRUD.Controllers
             await mvcDemoDbContext.Employees.AddAsync(employee);
             await mvcDemoDbContext.SaveChangesAsync();
 
-            return RedirectToAction("Add");
+            return RedirectToAction("Index");
         }
     }
 }
