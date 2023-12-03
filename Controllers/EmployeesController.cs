@@ -47,5 +47,49 @@ namespace ASPNETMVCCRUD.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> View(Guid id)
+        {
+            var employee = await mvcDemoDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(employee != null)
+            {
+                var viewModel = new UpdateEmployeeViewModel()
+                {
+                    Id = employee.Id,
+                    Name = employee.Name,
+                    Emil = employee.Emil,
+                    Salary = employee.Salary,
+                    Department = employee.Department,
+                    DateOfBirth = employee.DateOfBirth,
+                };
+                return await Task.Run(() => View("View", viewModel));
+            }
+
+            
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> View(UpdateEmployeeViewModel model)
+        {
+            var employee = await mvcDemoDbContext.Employees.FindAsync(model.Id);
+
+            if(employee != null)
+            {
+                employee.Name = model.Name;
+                employee.Emil = model.Emil;
+                employee.Salary = model.Salary;
+                employee.DateOfBirth = model.DateOfBirth;
+                employee.Department = model.Department;
+
+                await mvcDemoDbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
